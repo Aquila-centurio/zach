@@ -15,6 +15,12 @@ DWORD Reverse(DWORD in) {
 int main() {
 
 	string file = "C://neu140_wgo_schema01.png";
+    HANDLE handle = CreateFile(file.data(), GENERIC_READ, FILE_SHARE_READ, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0); //открыть
+    DWORD size = GetFileSize(handle, 0);
+    BYTE* Buffer{ new BYTE[size] };
+    DWORD byte;
+    ReadFile(handle, Buffer, size, &byte, 0);
 
+   
 	return 0;
 }
